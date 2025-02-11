@@ -9,13 +9,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-// CORS Configuration (Allow frontend from Render)
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5174",
-    credentials: true,
-  })
-);
+
+app.use(cors({
+  origin: ["http://localhost:5174", "https://event-management-system-wnd4.onrender.com"], // Allow both local and deployed frontend
+  credentials: true,
+}));
+
 
 // Connect to Database
 connectDB();
