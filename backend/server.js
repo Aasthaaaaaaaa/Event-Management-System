@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: "*", 
+  origin: ["*","http://localhost:5173", "https://event-management-system-wnd4.onrender.com"], // Allow both local and deployed frontend
   credentials: true,
 }));
 
