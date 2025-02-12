@@ -20,7 +20,7 @@ const Dashboard = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:8000/api/events/getevents", {
+      const response = await axios.get("/api/events/getevents", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -78,7 +78,7 @@ const Dashboard = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:8000/api/events/create", newEvent, {
+      await axios.post("/api/events/create", newEvent, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
