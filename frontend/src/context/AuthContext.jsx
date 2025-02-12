@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
       axios
-        .get("http://localhost:8000/api/auth/login", {
+        .get("/api/auth/login", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (email, password) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/auth/login", {
+      const response = await axios.post("/api/auth/login", {
         email,
         password,
       });
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   // Register function
   const register = async (name, email, password) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/auth/register", {
+      const response = await axios.post("/api/auth/register", {
         name,
         email,
         password,
